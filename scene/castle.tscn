@@ -1,7 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://2hijqjxba1d1"]
+[gd_scene load_steps=5 format=3 uid="uid://2hijqjxba1d1"]
 
 [ext_resource type="Texture2D" uid="uid://pcglpu3pes2d" path="res://art/background.png" id="1_65sbk"]
 [ext_resource type="PackedScene" uid="uid://bb55xipc1pcxt" path="res://scene/player.tscn" id="2_d6lxc"]
+[ext_resource type="PackedScene" uid="uid://v04v273pljfd" path="res://scene/object.tscn" id="3_p6aid"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_noiov"]
+size = Vector2(160, 22)
 
 [node name="castle" type="Node2D"]
 metadata/_edit_lock_ = true
@@ -14,4 +18,13 @@ texture = ExtResource("1_65sbk")
 metadata/_edit_lock_ = true
 
 [node name="Player" parent="." instance=ExtResource("2_d6lxc")]
-position = Vector2(5, 84)
+position = Vector2(6, 95)
+
+[node name="RigidBody2D" parent="." instance=ExtResource("3_p6aid")]
+position = Vector2(21, 65)
+
+[node name="Ground" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground"]
+position = Vector2(80, 133)
+shape = SubResource("RectangleShape2D_noiov")

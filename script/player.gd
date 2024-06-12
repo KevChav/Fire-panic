@@ -1,10 +1,12 @@
 extends CharacterBody2D
 
-var Mypositions = [10,50,100]
-var current_pos = 0
+var leftBound = 24
+var current_pos = 24
+var rightBound = 96
+var stepLock = 36
 
 func _ready():
-	position.x = Mypositions[current_pos]
+	position.x = current_pos
 
 func _input(event):
 	if event.is_action_pressed("left"):
@@ -13,11 +15,11 @@ func _input(event):
 		move_right()
 		
 func move_left():
-	if current_pos > 0:
-		current_pos -= 1
-		position.x = Mypositions[current_pos]
+	if current_pos > leftBound:
+		current_pos -= stepLock
+		position.x = current_pos
 		
 func move_right():
-	if current_pos < [Mypositions].size() - 1:
-		current_pos += 1
-		position.x = Mypositions[current_pos]
+	if current_pos < rightBound:
+		current_pos += stepLock
+		position.x = current_pos
