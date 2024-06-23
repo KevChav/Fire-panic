@@ -3,8 +3,8 @@ extends RigidBody2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	position.x = 40
-	linear_velocity.x = 20
+	position.x = 22
+	linear_velocity.x = 5
 	pass # Replace with function body.
 
 
